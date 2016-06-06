@@ -10,7 +10,7 @@ RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 581
 
 ADD docker.list /etc/apt/sources.list.d/docker.list
 
-RUN apt-get update && apt-get install -y docker-engine npm nodejs-legacy ant rsync && apt-get clean
+RUN apt-get update && apt-get install -y docker-engine npm nodejs-legacy ant rsync curl && apt-get clean
 RUN npm install --global gulp
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
