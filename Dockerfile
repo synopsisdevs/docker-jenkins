@@ -18,7 +18,7 @@ RUN echo "deb http://packages.dotdeb.org jessie all" >> /etc/apt/sources.list \
     && wget https://www.dotdeb.org/dotdeb.gpg \
     && apt-key add dotdeb.gpg \
     && apt-get update \
-    && apt-get install -y php7.0-cli php7.0-cgi php7.0-curl php7.0-mcrypt  \
+    && apt-get install -y php7.0-cli php7.0-cgi php7.0-curl php7.0-mcrypt php7.0-mbstring  \
     && apt-get clean
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
