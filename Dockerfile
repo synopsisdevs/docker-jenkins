@@ -10,9 +10,7 @@ ENV DOCKER_COMPOSE_VERSION 1.8.1
 
 USER root
 
-ENV BUILD_PACKAGES="apt-transport-https docker-engine npm nodejs-legacy ant rsync curl php7.0-cli php7.0-cgi php7.0-curl php7.0-mcrypt php7.0-mbstring php7.0-xml"
-
-ADD docker.list /etc/apt/sources.list.d/docker.list
+ENV BUILD_PACKAGES="docker-engine npm nodejs-legacy ant rsync curl php7.0-cli php7.0-cgi php7.0-curl php7.0-mcrypt php7.0-mbstring php7.0-xml"
 
 RUN apt-get clean \
     && apt-get update \
@@ -20,6 +18,7 @@ RUN apt-get clean \
     && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D \
     && echo "deb http://packages.dotdeb.org jessie all" >> /etc/apt/sources.list \
     && echo "deb-src http://packages.dotdeb.org jessie all" >> /etc/apt/sources.list \
+    && echo "deb https://apt.dockerproject.org/repo debian-jessie main" >> /etc/apt/sources.list \
     && wget https://www.dotdeb.org/dotdeb.gpg \
     && apt-key add dotdeb.gpg \
     && apt-get update \
