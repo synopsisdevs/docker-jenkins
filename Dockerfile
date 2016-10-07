@@ -23,7 +23,8 @@ RUN apt-get clean \
     && apt-key add dotdeb.gpg \
     && apt-get update \
     && apt-get install -y $BUILD_PACKAGES \
-    && apt-get clean
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 RUN npm install --global gulp
 
