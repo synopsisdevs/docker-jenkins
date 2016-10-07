@@ -12,6 +12,8 @@ USER root
 
 ENV BUILD_PACKAGES="docker-engine npm nodejs-legacy ant rsync curl php7.0-cli php7.0-cgi php7.0-curl php7.0-mcrypt php7.0-mbstring php7.0-xml"
 
+RUN sed -i  "s/http:\/\/httpredir\.debian\.org\/debian/ftp:\/\/ftp\.debian\.org\/debian/g" /etc/apt/sources.list
+
 RUN apt-get clean \
     && apt-get update \
     && apt-get install -y apt-transport-https \
